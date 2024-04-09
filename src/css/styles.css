@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Pixel Operator', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column; /* Add this line */
+}
+
+h1 {
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+
+#carousel {
+    width: 100%;
+    height: calc(100vh - 10rem);
+    object-fit: contain;
+    grid-area: carousel;
+}
+/* Style for the terminal-like text */
+/* font-family: 'Courier New', Courier, monospace; Monospace font for authenticity */
+#typed-title {
+    color: #0F0; /* Green text, similar to a terminal */    
+    font-family: 'Pixel Operator', monospace; /* Using 'Pixel Operator' font */
+    white-space: pre; /* Ensures spaces and line breaks are respected */
+    max-width: 100%; /* Ensures the container doesn't exceed the viewport width */
+    word-wrap: break-word;
+    white-space: normal; /* Allows the text to wrap */
+    grid-area: title;
+}
+
+
+
+/* Style for the blinking cursor */
+.cursor, .cursor-text {
+    display: inline-block;
+    background-color: #0F0; /* Same green as the text */
+    margin-left: 5px;
+    width: 8px; /* Width of the cursor */
+    height: 1em; /* Full height of the line */
+    animation: blink 1s infinite; /* Blinking animation */
+}
+
+/* Keyframes for the blinking animation */
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.twitter-follow-logo img {
+    width: 40px; /* Adjust the size as needed */
+    opacity: 0.7; /* Make the logo more discreet */
+    transition: opacity 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.twitter-follow-logo:hover img {
+    opacity: 1; /* Logo is fully opaque when hovered */
+}
+ 
+img, video, iframe {
+    max-width: 100%; /* Ensure they don't overflow their container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.content-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout for mobile */
+    grid-gap: 20px; /* Space between items */
+    grid-template-areas:
+        "text-content"
+        "carousel";
+    max-width: 95%; /* Adjust the percentage as needed */
+    margin: 0 auto; /* This centers the carousel */    
+    align-content: center; /* Center grid items vertically */
+}
+
+.text-content {
+    color: #0F0; /* Green text, similar to a terminal */        
+    max-width: 600px; /* Adjust based on your content */
+    flex-direction: column; /* Stack vertically on mobile */
+    align-items: left; /* Center items for mobile */
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) { /* Adjust breakpoint as needed */    
+    .typed-title {
+      /*font-size: 18px; */ /* Smaller font size for mobile */
+      /*line-height: 1.1; */ /* Adjusted line height for mobile */
+      word-wrap: break-word; /* Ensure long words do not overflow */
+    }
+  }
+
+@media (min-width: 768px) { /* Adjust breakpoint as needed */
+    .content-container {
+        display: grid;
+        grid-template-columns: 1fr 2fr; /* Adjust if you want different proportions */
+        grid-template-areas:
+            "carousel text-content";
+        justify-content: center; /* Center the grid items horizontally */
+        align-content: center; /* Center the grid items vertically */        
+        max-width: 1200px; /* Example max-width, adjust as needed */
+        margin: 0 auto; /* Center the grid container */
+        width: 100%; /* Ensure it takes up the full width */
+    }
+
+    #carousel {
+        grid-area: carousel;
+    }
+
+    .text-content {
+        grid-area: text-content;
+        /* Ensure alignment and spacing are as desired */
+        margin-left: 20px; /* Adjust or remove based on grid-gap */
+        font-size: 1.5rem;
+        line-height: 1.5;
+    }
+}
+
