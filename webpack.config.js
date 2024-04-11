@@ -19,6 +19,7 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 { from: 'src/twitter-logo.png', to: 'twitter-logo.png' },
+                { from: 'README.md', to: 'README.md' }, // Add this line
             ],
         }),
     ],
